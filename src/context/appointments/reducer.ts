@@ -2,16 +2,16 @@ import { IAppointmentAction, ActionsTypes } from "./actions";
 import { IAppointment, ActiveAppoitment } from "../../shared/interfaces/appointment.interface";
 
 export interface IInitialState {
-    allAppointments: IAppointment | [];
-    activeAppoitments: ActiveAppoitment | [];
+    allAppointments: IAppointment[] | [];
+    activeAppoitments: ActiveAppoitment[] | [];
 }
 
 export default function reducer(state: IInitialState, action: IAppointmentAction) {
     switch (action.type) {
         case ActionsTypes.SET_ACTIVE_APPOINTMENTS:
-            return { ...state, allAppointments: action.payload };
+            return { ...state, activeAppoitments: action.payload };
         case ActionsTypes.SET_ALL_APPOINTMENTS:
-            return { ...state, acriveAppointments: action.payload };
+            return { ...state, allAppointments: action.payload };
         default:
             return state;
     }
