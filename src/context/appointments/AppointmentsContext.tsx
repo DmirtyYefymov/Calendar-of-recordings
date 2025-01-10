@@ -7,7 +7,7 @@ import { ActionsTypes } from "./actions";
 
 const initialState: IAppointmentState = {
     allAppointments: [],
-    activeAppoitments: [],
+    activeAppointments: [],
     appoitmentLoadingStatus: "idle",
 };
 
@@ -22,7 +22,7 @@ interface IAppointmentContextValue extends IAppointmentState {
 
 export const AppointmentContext = createContext<IAppointmentContextValue>({
     allAppointments: initialState.allAppointments,
-    activeAppoitments: initialState.activeAppoitments,
+    activeAppointments: initialState.activeAppointments,
     appoitmentLoadingStatus: initialState.appoitmentLoadingStatus,
     getAppointments: () => {},
     getActiveAppointments: () => {},
@@ -35,7 +35,7 @@ const AppointmentContextProvider = ({ children }: IProviderProps) => {
 
     const value: IAppointmentContextValue = {
         allAppointments: state.allAppointments,
-        activeAppoitments: state.activeAppoitments,
+        activeAppointments: state.activeAppointments,
         appoitmentLoadingStatus: loadingStatus,
         getAppointments: () => {
             getAllAppointments().then((data) =>

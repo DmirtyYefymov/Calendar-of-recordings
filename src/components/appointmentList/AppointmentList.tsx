@@ -7,7 +7,7 @@ import { AppointmentContext } from "../../context/appointments/AppointmentsConte
 
 function AppointmentList() {
     const {
-        activeAppoitments,
+        activeAppointments,
         getActiveAppointments,
         appoitmentLoadingStatus,
     } = useContext(AppointmentContext);
@@ -34,7 +34,7 @@ function AppointmentList() {
 
     return (
         <>
-            {activeAppoitments.map((item) => (
+            {activeAppointments.map((item) => (
                 <AppointmentItem key={item.id} {...item} />
             ))}
         </>

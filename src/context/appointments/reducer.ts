@@ -1,10 +1,10 @@
 import { TAppointmentAction, ActionsTypes } from "./actions";
-import { IAppointment, ActiveAppoitment } from "../../shared/interfaces/appointment.interface";
+import { IAppointment, ActiveAppointment } from "../../shared/interfaces/appointment.interface";
 import { loadingStatusOptions } from "../../hooks/http.hook";
 
 export interface IAppointmentState {
     allAppointments: IAppointment[] | [];
-    activeAppoitments: ActiveAppoitment[] | [];
+    activeAppointments: ActiveAppointment[] | [];
     appoitmentLoadingStatus: loadingStatusOptions;
 }
 
@@ -13,7 +13,7 @@ export default function reducer(state: IAppointmentState, action: TAppointmentAc
         case ActionsTypes.SET_ACTIVE_APPOINTMENTS:
             return {
                 ...state,
-                activeAppoitments: action.payload,
+                activeAppointments: action.payload,
                 appoitmentLoadingStatus: "idle"
             };
         case ActionsTypes.SET_ALL_APPOINTMENTS:
