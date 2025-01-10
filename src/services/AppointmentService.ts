@@ -1,8 +1,8 @@
 import { useHttp } from "../hooks/http.hook";
 import hasRequiredFields from "../utils/hasRequiredFields";
+import dayjs from "dayjs";
 
 import { IAppointment, ActiveAppoitment } from "../shared/interfaces/appointment.interface";
-
 
 const requiredFields = ['id', 'date', 'name', 'service', 'phone', 'canceled'];
 
@@ -23,7 +23,9 @@ const useAppointmentService = () => {
     const getAllActiveAppointments = async () => {
         const base = await getAllAppointments();
         const transformed: ActiveAppoitment[] = base
-            .filter((item) => !item.canceled)
+            .filter((item) => {
+                return !item.canceled && dayjs(item.date).diff(undefined, 'minute') > 0;
+            })
             .map((item) => {
                 return {
                     id: item.id,
